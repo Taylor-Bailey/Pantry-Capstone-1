@@ -11,7 +11,7 @@ let firebase = require("./config"),
             console.log("User has logged into Pantry");
         }else{
             currentUser = null;
-            console.log("No usered logged into Pantry");
+            console.log("No user logged into Pantry");
         }
     });
 
