@@ -7,6 +7,7 @@ let $ = require('../lib/node_modules/jquery');
 
 users.logOut();
 
+//log in button//
 $("#loginButton").click(function(){
     users.logInGoogle()
     .then((login) => {
