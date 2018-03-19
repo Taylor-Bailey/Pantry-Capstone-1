@@ -1,6 +1,6 @@
 "use strict";
 let firebase = require("firebase/app"),
-    fb = require("./fireBaseKey"),
+    fb = require("./fb-key"),
     fbData = fb(), //running the fb file, containing what's inside fb-key
     auth = require("firebase/auth"),
     db = require("firebase/database");
