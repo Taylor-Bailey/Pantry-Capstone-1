@@ -1,18 +1,17 @@
 "use strict";
 let firebase = require("firebase/app"),
-    fb = require("./fb-key"),
-    fbData = fb(), //running the fb file, containing what's inside fb-key
+    fbKey = require("./fb-key"),
+    fbData = fbKey(),
     auth = require("firebase/auth"),
     db = require("firebase/database");
 
 var config = {
-  apiKey: fbData.apiKey,
-  authDomain: fbData.authDomain,
-  databaseURL: fbData.databaseURL
+    apiKey: fbData.apiKey,
+    authDomain: fbData.authDomain,
+    databaseURL: fbData.databaseURL
 };
 
-firebase.getFBsettings = function(){
-    //  console.log("getFBsettings", config);
+firebase.getFBsettings = () => {
      return config;
 };
 

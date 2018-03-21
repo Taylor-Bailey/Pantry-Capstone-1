@@ -1,17 +1,29 @@
 "use strict";
 let config = require("./config");
 let users = require("./users");
-let postUser = require ('./postUser');
+let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
 let $ = require('../lib/node_modules/jquery');
 
 users.logOut();
 
-//log in button//
-$("#loginButton").click(function(){
+//LOGIN BUTTON//
+$("#loginButton").click(function() {
+    console.log("clicked login");
     users.logInGoogle()
-    .then((login) => {
-        console.log("got the user", login.user.uid);
-        postUser.addUser(postUser.buildUserObject(login.user.displayName, login.user.uid, login.user.photoURL));
+    .then((result) => {
+      console.log("result from login", result.user.uid);
+      users.setUser(result.user);
+      $("#loginButton").addClass("is-hidden");
+      $("#logoutButton").removeClass("is-hidden");
+      postUser.checkUser(result.user.uid);
     });
+  });
+
+//LOGOUT BUTTON//
+$("#logoutButton").click(() => {
+    console.log("main.logout clicked");
+    users.logOut();
+    $("#loginButton").removeClass("is-hidden");
+    $("#logoutButton").addClass("is-hidden");
 });
