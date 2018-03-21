@@ -23,6 +23,7 @@
     "matchdep": "^1.0.1"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0",
     "firebase": "^3.6.9",
     "jquery": "^1.7.4"
   }
