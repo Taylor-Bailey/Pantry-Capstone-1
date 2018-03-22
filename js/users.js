@@ -8,10 +8,9 @@ let currentUser = {
     photo: null
 };
   
-let makeUser = (uid, fbID, displayName, photoURL) => {
+let makeUser = (uid, displayName, photoURL) => {
     let newUserObject = {
     uid: uid, 
-    fbID: fbID,
     displayName: displayName,
     photo: photoURL
     };
@@ -25,7 +24,7 @@ function userValues(obj){
         currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
         currentUser.displayName = obj.displayName ? obj.displayName : currentUser.displayName;
-        currentUser.photoURL = obj.photoURL ? obj.photoURL : currentUser.photoURL;
+        currentUser.photo = obj.photoURL ? obj.photoURL : currentUser.photoURL;
         resolve(currentUser);
     });
 }
@@ -34,8 +33,11 @@ function userValues(obj){
 firebaseConfig.auth().onAuthStateChanged(function(user){
     if (user){
         currentUser.uid = user.uid;
+        currentUser.photo = user.photoURL;
+        currentUser.displayName = user.displayName;
         console.log("User has logged into Pantry");
         console.log("onAuthStateChanged", user);
+        console.log("current user in AuthStateChanged: ", currentUser);
     }else{
         currentUser.uid = null;
         currentUser.fbID = null;
@@ -57,6 +59,7 @@ function setUser(val){
     currentUser.uid = val.uid;
     currentUser.displayName = val.displayName;
     currentUser.photo = val.photoURL;
+    console.log("currentUser in setUser: ", currentUser);
 }
 function getUser(){
     return currentUser.uid;

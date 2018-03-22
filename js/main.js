@@ -16,7 +16,7 @@ $("#loginButton").click(function() {
       users.setUser(result.user);
       $("#loginButton").addClass("is-hidden");
       $("#logoutButton").removeClass("is-hidden");
-      postUser.checkUser(result.user.uid);
+      postUser.checkUser(result.user);
     });
   });
 
@@ -24,6 +24,6 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
-    $("#loginButton").removeClass("is-hidden");
-    $("#logoutButton").addClass("is-hidden");
+    // $("#loginButton").removeClass("is-hidden");
+    // $("#logoutButton").addClass("is-hidden");
 });

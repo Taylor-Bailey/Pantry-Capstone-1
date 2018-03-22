@@ -1,3 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+//COLOR & FONT//
+$red: #ec411f;
+$darkred: #cd0f0f;
+$black: #525252;
+$gray: #bababa;
+$white: #f4f4f4;
+$font:'Noto Sans', sans-serif;
+
+// BASE STYLES //
+  body, html {
+    height: 100%;
+    font-family: $font;
+  }
+
+h1 {
+  font-family: $font;
+  font-weight: bold;
+  font-size: 40px;
+  color: $black;
+  text-align: center;
+  margin: .25em;
+}
+
+h2 {
+  font-family: $font;
+  font-weight: bold;
+  font-size: 25px;
+  color: $black;
+}
+
+h3 {
+  font-family: $font;
+  font-weight: bold;
+  font-size: 20px;
+  color: $black;
+}
+
+p {
+  font-family: $font;
+  font-size: 14px;
+  color: $black; 
+}
+
+i {
+  font-size: 20px;
+  color: $black;
+}
+
+li {
+  font-family: $font;
+  font-size: .8em;
+  padding: .5em 0.4em;
+  list-style-type: none;
+}
+
+
+//LANDING PAGE//
+
+.bg {
+  background-image: url("../img/landing.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#pantry{
+  font-family: 'Bell MT', sans-serif;
+  font-size: 98px;
+  font-weight: normal;
+  color: #f4f4f4;
+  margin: 15% auto 0 auto;
+  display: inline-block;
+  width: 100%;
+}
+
 .is-hidden {
   display: none;
+}
+#loginIcon{
+  width: 64px;
+  height: 64px;
+  margin: 0 30% 60%;
+}
+#loginButton{
+  width: 281px;
+  height: 90px;
+  background: linear-gradient($red, $darkred);
+  font-family: $font;
+  font-size: 40px;
+  font-weight: bold;
+  color: $white;
+  border: hidden;
+  border-radius: 0px;
+  padding: 0px;
+  padding-bottom: 5px;
+}
+
+#loginButton:active {
+  background-color: $white;
+  border: hidden;
+  border-radius: 0px;
+}
+
+//SEARCH PAGE//
+.tab{
+  text-align: center;
+  padding: 5px 0; 
+  font-family: $font;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#searchTabActive{
+  background-color: $red;
+  border-bottom: 2px solid $red;
+  color: $white;
+}
+
+#recipeTabInactive{
+  background-color: $white;
+  border-bottom: 2px solid $red;
+  color: $black;
+}
+
+#searchDiv {
+  margin-top: 1em;
+}
+
+#searchInput {
+  height: 43px;
+  border: $gray solid 2px;
+  font-family: $font;
+  color: $black;
+}
+
+#searchButton {
+  height: 43px;
+  border: $red solid 2px;
+  color: $red;
+  background-color: transparent;
+  margin-top: 1em !important;
+  font-weight: bold;
+  font-size: 20px;
+  transition-duration: .4s;
+  overflow: hidden;
+}
+#searchButton:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: $red;
+  opacity: 0;
+  color: $white;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(60, 60);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60);
+  }
+}
+
+#searchButton:active {
+  background-color: $red;
+  color: $white;
+  transition: ease-out .2s;
+}
+
+#searchButton:focus:not(:active)::after {
+  animation: ripple 1.4s ease-out;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 14px;
+    line-height: 3;
+    font-family: $font;
+}
+
+.iconDiv {
+  margin-top: 1em;
+}
+
+.searchIcon {
+  height: 40px;
+  width: 40px;
+}
+
+#resultsDiv {
+  // background-color: $white;
+  height: 21.6em;
+  margin-top: 1.2em;
+  overflow: auto;
+}
+
+#logoutButton{
+  height: 43px;
+  background-color: $red;
+  color: $white;
+  border: none;
+  font-weight: bold;
+  margin: 1em 0 0 2em;
+}
+#recipeDiv{
+  background-color: white;
+}
+
+.recipeOverviewName{
+  padding: 0 0 .86em 0;
+}
+
+.recipeInfo{
+  height: 85px;
+}
+
+.overviewIcon{
+  height: 25px;
+  width: 25px;
 }
