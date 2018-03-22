@@ -16,7 +16,7 @@ $("#loginButton").click(function() {
       users.setUser(result.user);
       $("#loginButton").addClass("is-hidden");
       $("#logoutButton").removeClass("is-hidden");
-      postUser.checkUser(result.user.uid);
+      postUser.checkUser(result.user);
     });
   });
 

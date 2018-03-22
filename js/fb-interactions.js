@@ -42,19 +42,21 @@ let findUser = (uid) => {
 };
 
 //CHECK TO SEE IF USER IN FIREBASE//
-let checkUser = (uid) => {
-    findUser(uid)
+let checkUser = (userObject) => {
+    findUser(userObject.uid)
     .then((result) => {
         let data = Object.values(result);
         console.log("user: any data?", data.length);
+        console.log("data: ", data);
         if (data.length === 0){
             console.log("need to add this user to FB" , data);
-           addUser(user.makeUser(uid))
+           addUser(user.makeUser(userObject.uid, userObject.displayName, userObject.photo))
             .then((result) => {
-                console.log("user: user added", uid, result.name);
+                console.log("result in checkUser: " , result);
+                console.log("user: user added", userObject.uid, result.name);
                 let tmpUser = {
                     fbID: result.name,
-                    uid: uid
+                    uid: userObject.uid
                 };
                 return tmpUser;
             }).then((tmpUser) => {
