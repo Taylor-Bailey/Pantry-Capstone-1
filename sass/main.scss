@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 //COLOR & FONT//
@@ -92,7 +93,7 @@ li {
   height: 64px;
   margin: 0 50% 60%;
 }
-#loginButton, #logoutButton {
+#loginButton{
   width: 281px;
   height: 90px;
   background: linear-gradient($red, $darkred);
@@ -144,9 +145,60 @@ li {
   color: $black;
 }
 
+#searchButton {
+  height: 43px;
+  border: $red solid 2px;
+  color: $red;
+  background-color: transparent;
+  margin-top: 1em !important;
+  font-weight: bold;
+  font-size: 20px;
+  transition-duration: .4s;
+  overflow: hidden;
+}
+#searchButton:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: $red;
+  opacity: 0;
+  color: $white;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(60, 60);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60);
+  }
+}
+
+#searchButton:active {
+  background-color: $red;
+  color: $white;
+  transition: ease-out .2s;
+}
+
+#searchButton:focus:not(:active)::after {
+  animation: ripple 1.4s ease-out;
+}
+
 input,
 input::-webkit-input-placeholder {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 3;
     font-family: $font;
 }
@@ -156,7 +208,24 @@ input::-webkit-input-placeholder {
 }
 
 .searchIcon {
-  height: 66px;
-  width: 66px;
+  height: 40px;
+  width: 40px;
 }
+
+#resultsDiv {
+  background-color: $white;
+  height: 21.6em;
+  margin-top: 1.2em;
+  overflow: auto;
+}
+
+#logoutButton{
+  height: 43px;
+  background-color: $red;
+  color: $white;
+  border: none;
+  font-weight: bold;
+  margin: 1em 0 0 2em;
+}
+
 

@@ -24,6 +24,6 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
-    $("#loginButton").removeClass("is-hidden");
-    $("#logoutButton").addClass("is-hidden");
+    // $("#loginButton").removeClass("is-hidden");
+    // $("#logoutButton").addClass("is-hidden");
 });
