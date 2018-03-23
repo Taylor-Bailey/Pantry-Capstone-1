@@ -1,9 +1,10 @@
 "use strict";
+let $ = require('jquery');
 let config = require("./config");
 let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
-let $ = require('../lib/node_modules/jquery');
+let ingredients = require("./ingredients");
 
 users.logOut();
 
