@@ -1,14 +1,22 @@
 "use strict";
 console.log("ingredients hello!");
 
-let key = require('./api-key.js');
 var $ = require('jquery');
-let ingredients;
+let key = require('./api-key.js');
+let ingredients = [];
+const headers = {
+    "X-Mashape-Key": `${key.spoonKey.apiKey}`,
+    Accept: "application/json"
+};
+
+
 
 function getIngredients() {
     console.log("get Ingredients Running");
     return $.ajax({
-      url: `https://${key.spoonKey.authDomain}${key.spoonKey.ingredients}${key.spoonKey.apiKey}`
+      url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
+      method: 'GET',
+      headers: headers
     }).done((data) => {
         console.log("getIngredients data: ", data);
         return data;

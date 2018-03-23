@@ -15,8 +15,6 @@ $("#loginButton").click(function() {
     .then((result) => {
       console.log("result from login", result.user.uid);
       users.setUser(result.user);
-      $("#loginButton").addClass("is-hidden");
-      $("#logoutButton").removeClass("is-hidden");
       postUser.checkUser(result.user);
     });
   });
@@ -25,6 +23,4 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
-    // $("#loginButton").removeClass("is-hidden");
-    // $("#logoutButton").addClass("is-hidden");
 });
