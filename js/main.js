@@ -1,9 +1,10 @@
 "use strict";
+let $ = require('jquery');
 let config = require("./config");
 let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
-let $ = require('../lib/node_modules/jquery');
+let ingredients = require("./ingredients");
 
 users.logOut();
 
@@ -14,8 +15,6 @@ $("#loginButton").click(function() {
     .then((result) => {
       console.log("result from login", result.user.uid);
       users.setUser(result.user);
-      $("#loginButton").addClass("is-hidden");
-      $("#logoutButton").removeClass("is-hidden");
       postUser.checkUser(result.user);
     });
   });
@@ -24,6 +23,11 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
-    // $("#loginButton").removeClass("is-hidden");
-    // $("#logoutButton").addClass("is-hidden");
+});
+
+//SEARCH BUTTON//
+$("#searchButton").click(event =>{
+  event.preventDefault();
+  let input = $("#searchInput").val();
+  console.log("search input: ", input);
 });
