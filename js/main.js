@@ -24,3 +24,10 @@ $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
 });
+
+//SEARCH BUTTON//
+$("#searchButton").click(event =>{
+  event.preventDefault();
+  let input = $("#searchInput").val();
+  console.log("search input: ", input);
+});
