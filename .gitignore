@@ -1,5 +1,6 @@
 .DS_Store
 js/fb-key.js
+js/api-key.js
 dist/
 lib/.sass-cache
 lib/node_modules
