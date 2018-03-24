@@ -4,7 +4,7 @@ let config = require("./config");
 let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
-let ingredients = require("./ingredients");
+const ingredRequire = require("./ingredients");
 
 users.logOut();
 
@@ -29,5 +29,7 @@ $("#logoutButton").click(() => {
 $("#searchButton").click(event =>{
   event.preventDefault();
   let input = $("#searchInput").val();
-  console.log("search input: ", input);
+  let ingredients = input;
+  ingredRequire.getIngredients(ingredients);
+  $("#searchInput").val("");
 });
