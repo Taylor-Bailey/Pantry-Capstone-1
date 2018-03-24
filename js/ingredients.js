@@ -1,5 +1,4 @@
 "use strict";
-console.log("ingredients hello!");
 
 var $ = require('jquery');
 let key = require('./api-key.js');
@@ -24,13 +23,8 @@ function getIngredients() {
         console.log("getIngredients Fail");
         return error;
     });
-   }
+}
 
-   getIngredients();
+getIngredients();
 
-   module.exports = {getIngredients};
-
-// GET https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients
-
-// curl curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1' \
-//   -H 'Accept: application/json'
+module.exports = {getIngredients};
