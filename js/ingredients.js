@@ -2,15 +2,13 @@
 
 var $ = require('jquery');
 let key = require('./api-key.js');
-let ingredients = [];
+let recipes = [];
 const headers = {
     "X-Mashape-Key": `${key.spoonKey.apiKey}`,
     Accept: "application/json"
 };
 
-
-
-function getIngredients() {
+function getIngredients(ingredients) {
     console.log("get Ingredients Running");
     return $.ajax({
       url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
@@ -24,7 +22,5 @@ function getIngredients() {
         return error;
     });
 }
-
-getIngredients();
 
 module.exports = {getIngredients};
