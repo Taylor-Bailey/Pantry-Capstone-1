@@ -15,6 +15,22 @@ function getIngredients(ingredients) {
       method: 'GET',
       headers: headers
     }).done((data) => {
+        let ids = data.map(r => r.id);
+        if(ids.length){
+            $.ajax({
+                url: `https://${key.spoonKey.domain}${key.spoonKey.recipeInfo}`,
+                method:'GET',
+                data: {ids:ids.join(',')},
+                headers: headers
+            }).done((data) => {
+                recipes = data;
+                console.log("recipeinfo data", data);
+                for(let i = 0; i < recipes.length; i++){
+                    let recipeObject = recipes[i];
+                    console.log("recipe object: ", recipeObject);
+                }
+            });
+        }
         console.log("getIngredients data: ", data);
         return data;
     }).fail((error) => {
