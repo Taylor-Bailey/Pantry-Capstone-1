@@ -9,7 +9,6 @@ const headers = {
 };
 
 function getIngredients(ingredients) {
-    console.log("get Ingredients Running");
     return $.ajax({
       url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
       method: 'GET',

@@ -17,6 +17,7 @@ $("#loginButton").click(function() {
       console.log("result from login", result.user.uid);
       users.setUser(result.user);
       postUser.checkUser(result.user);
+      printer.printSearchPage();
     });
   });
 
