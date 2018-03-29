@@ -24,7 +24,6 @@ function getIngredients(ingredients) {
                 headers: headers
             }).done((data) => {
                 recipes = data;
-                console.log("recipeinfo data", data);
                 for(let i = 0; i < recipes.length; i++){
                     let recipeObject = recipes[i];
                     console.log("recipe object: ", recipeObject);

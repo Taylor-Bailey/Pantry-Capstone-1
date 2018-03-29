@@ -5,7 +5,9 @@ let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
 const ingredRequire = require("./ingredients");
+let timeConverter = require("./helper");
 
+console.log(timeConverter.cookTime(1224));
 users.logOut();
 
 //LOGIN BUTTON//
