@@ -4,10 +4,9 @@ let config = require("./config");
 let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
+let printer = require('./print');
 const ingredRequire = require("./ingredients");
-let timeConverter = require("./helper");
 
-console.log(timeConverter.cookTime(1224));
 users.logOut();
 
 //LOGIN BUTTON//
@@ -25,6 +24,7 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
+    printer.printLoginPage();
 });
 
 //SEARCH BUTTON//
@@ -34,4 +34,5 @@ $("#searchButton").click(event =>{
   let ingredients = input;
   ingredRequire.getIngredients(ingredients);
   $("#searchInput").val("");
+  printer.printSearchResults();
 });
