@@ -109,4 +109,4 @@ let printErrorMessage = () => {
     );
 };
 
-module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};
+module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage, printErrorMessage};
