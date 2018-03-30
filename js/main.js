@@ -31,9 +31,11 @@ $("#searchButton").click(event =>{
   event.preventDefault();
   let input = $("#searchInput").val();
   let ingredients = input;
-  ingredRequire.getIngredients(ingredients);
+  ingredRequire.getIngredients(ingredients)
+  .then((data) => {
+    printer.printSearchResults();
+  });
   $("#searchInput").val("");
-  printer.printSearchResults();
 });
 
 //SEARCH TAB BUTTON//
