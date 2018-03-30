@@ -100,12 +100,10 @@ let printSearchResults = (recipe) => {
 };
 
 let printErrorMessage = () => {
-    $('#resultsDiv').append(
-        `<div id="recipeDiv" class ="row align-items-start">
-            <div class ="recipeInfo col-8">
-                    <h3 id="" class="recipeOverviewName row justify-content-center">You wouldn't want to eat that!</h3>
-                </div>
-            </div>`
+    $('#resultsDiv').html(
+        `<div id="recipeDiv" class ="row align-items-center">
+            <h2 class ="recipeInfo col-12">You wouldn't want to eat that!</h2>
+        </div>`
     );
 };
 
