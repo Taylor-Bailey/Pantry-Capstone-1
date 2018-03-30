@@ -88,31 +88,15 @@ let printSavedPage = () => {
     );
 };
 
-function printSearchResults(data) {
-    console.log("print search results is showing up");
-    $('#resultsDiv').html("");
-    return ingred.getIngredients(data)
-    .then((data) => {
-        let results = "";
-        for(let x = 0; x < data.length; x ++){
-        results += `
-        <div id="recipeDiv" class ="row align-items-start">    
-            <img src="${data[x].image}" alt="Image of ${data[x].title}" class="recipeOverviewImage col-4">
+function printSearchResults(recipe) {
+
+    $('#resultsDiv').append(
+         `<div id="recipeDiv" class ="row align-items-start">    
+            <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-4">
                 <div class ="recipeInfo col-8">
-                    <h2 id="" class="recipeOverviewName row justify-content-start">${data[x].title}</h2>
-                    <div class ="row justify-content-end">
-                        <div class="col-3">
-                            <img src="img/time-blk.png" alt="clock icon" class="overviewIcon"><p>${time.cookTime(data[x].cookingMinutes)}
-                        </div>
-                        <div class="col-3">
-                            <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
-                        </div>
-                    </div>
+                    <h2 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h2>
                 </div>
-        </div>`;
-        $('#resultsDiv').html(results);
+        </div>`);
     }
-    });
-}
 
 module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};

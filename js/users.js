@@ -32,6 +32,7 @@ function userValues(obj){
 firebaseConfig.auth().onAuthStateChanged(function(user){
     if (user){
         currentUser.uid = user.uid;
+        currentUser.fbID = user.fbID;
         currentUser.photo = user.photoURL;
         currentUser.displayName = user.displayName;
         console.log("User: ", currentUser);
