@@ -4,8 +4,8 @@ let config = require("./config");
 let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
-let printer = require('./print');
 const ingredRequire = require("./ingredients");
+let printer = require('./print');
 
 users.logOut();
 
@@ -36,4 +36,16 @@ $("#searchButton").click(event =>{
   ingredRequire.getIngredients(ingredients);
   $("#searchInput").val("");
   printer.printSearchResults();
+});
+
+//SEARCH TAB BUTTON//
+$("#searchTab").click(event => {
+  event.preventDefault();
+  printer.printSearchPage();
+});
+
+//RECIPES TAB BUTTON//
+$("#recipesTab").click(event => {
+  event.preventDefault();
+  printer.printSavedPage();
 });

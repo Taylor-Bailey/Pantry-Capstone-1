@@ -1,8 +1,9 @@
 "use strict";
 
-let ingredients = require('./ingredients');
+let ingred = require('./ingredients');
 let $ = require('jquery');
 let time = require('./helper');
+
 
 let printLoginPage = () => {
     $(document.body).html(
@@ -20,8 +21,8 @@ let printSearchPage = () => {
     $(document.body).html(
         `<div class="topTab">
         <div class="row align-items-start">
-            <div id="searchTabActive" class="tab col">Search</div>
-            <div id="recipeTabInactive" class="tab col">Recipes</div>
+            <div id="searchTab" class="TabActive tab col">Search</div>
+            <div id="recipesTab" class="TabInactive tab col">Recipes</div>
         </div>
     </div>
     <div class="container">
@@ -57,30 +58,67 @@ let printSearchPage = () => {
     );
 };
 
-let printSearchResults = (result) => {
-    $('#resultsDiv').html("");
-    console.log("results should be empty");
-    ingredients.getIngredients().then((food) => {
-        for(let i = 0; i < food.length; i ++){
-            console.log("see what shows up", food[i]);
-            $('#resultsDiv').html( 
-            `<div id="recipeDiv" class ="row align-items-start">    
-                <img src="${result[i].image}" alt="Image of ${result[i].title}" class="recipeOverviewImage col-4">
-                <div class ="recipeInfo col-8">
-                    <h2 id="" class="recipeOverviewName row justify-content-start">${result[i].title}</h2>
-                    <div class ="row justify-content-end">
-                        <div class="col-3">
-                            <img src="img/time-blk.png" alt="clock icon" class="overviewIcon"><p>${time.cookTime(result[i].cookingMinutes)}
-                        </div>
-                        <div class="col-3">
-                            <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
+let printSavedPage = () => {
+    $(document.body).html(`
+    <div class="topTab">
+        <div class="row align-items-start">
+            <div id="searchTab" class="TabInactive tab col">Search</div>
+            <div id="recipesTab" class="TabActive tab col">Recipes</div>
+        </div>
+    </div>
+    <div class="container">
+        <div id ="savedDiv" class="container">
+                <div id="recipeDiv" class ="row align-items-start">              
+                    <img src="img/chicken.png" alt="grilled chicken" id ="" class="recipeOverviewImage col-4">
+                    <div class ="recipeInfo col-8">
+                        <h2 id="" class="recipeOverviewName row justify-content-start">Recipe Name</h2>
+                        <div class ="row justify-content-end">
+                            <div class="col-3">
+                                <img src="img/time-blk.png" alt="clock icon" class="overviewIcon">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>`);
-        }
-    });
-    console.log("results printed to DOM");
+            </div>
+            <div class="row justify-content-start">
+                <button id="logoutButton" type="button" class="col-3">Log Out</button>
+            </div>
+        </div>
+    <script src="dist/app.js"></script>`
+    );
 };
 
-module.exports = {printSearchResults, printLoginPage, printSearchPage};
+
+let showRecipes = document.getElementById("recipeDiv");
+
+function printSearchResults() {
+    console.log("print search results is showing up");
+    $('#resultsDiv').html("");
+
+    ingred.getIngredients()
+    .then((data) => {
+        let results = "";
+        for(let x = 0; x < data.length; x ++){
+            console.log("see what shows up", data[x]);
+
+            results += `<div id="recipeDiv" class ="row align-items-start">    
+            <img src="${data[x].image}" alt="Image of ${data[x].title}" class="recipeOverviewImage col-4">
+            <div class ="recipeInfo col-8">
+                <h2 id="" class="recipeOverviewName row justify-content-start">${data[x].title}</h2>
+                <div class ="row justify-content-end">
+                    <div class="col-3">
+                        <img src="img/time-blk.png" alt="clock icon" class="overviewIcon"><p>${time.cookTime(data[x].cookingMinutes)}
+                    </div>
+                    <div class="col-3">
+                        <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }
+    showRecipes.innerHTML = results;
+    });
+    console.log("results printed to DOM");
+}
+
+module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};

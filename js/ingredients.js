@@ -29,7 +29,7 @@ function getIngredients(ingredients) {
                 }
             });
         }
-        console.log("getIngredients data: ", data);
+        console.log("getIngredients array: ", data);
         return data;
     }).fail((error) => {
         console.log("getIngredients Fail");
