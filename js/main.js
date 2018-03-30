@@ -5,6 +5,7 @@ let users = require("./users");
 let postUser = require ('./fb-interactions');
 let fbKey = require("./fb-key");
 const ingredRequire = require("./ingredients");
+let printer = require('./print');
 
 users.logOut();
 
@@ -16,6 +17,7 @@ $("#loginButton").click(function() {
       console.log("result from login", result.user.uid);
       users.setUser(result.user);
       postUser.checkUser(result.user);
+      printer.printSearchPage();
     });
   });
 
@@ -23,6 +25,7 @@ $("#loginButton").click(function() {
 $("#logoutButton").click(() => {
     console.log("main.logout clicked");
     users.logOut();
+    printer.printLoginPage();
 });
 
 //SEARCH BUTTON//
@@ -32,4 +35,17 @@ $("#searchButton").click(event =>{
   let ingredients = input;
   ingredRequire.getIngredients(ingredients);
   $("#searchInput").val("");
+  printer.printSearchResults();
+});
+
+//SEARCH TAB BUTTON//
+$("#searchTab").click(event => {
+  event.preventDefault();
+  printer.printSearchPage();
+});
+
+//RECIPES TAB BUTTON//
+$("#recipesTab").click(event => {
+  event.preventDefault();
+  printer.printSavedPage();
 });

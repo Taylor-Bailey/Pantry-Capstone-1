@@ -9,7 +9,6 @@ const headers = {
 };
 
 function getIngredients(ingredients) {
-    console.log("get Ingredients Running");
     return $.ajax({
       url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
       method: 'GET',
@@ -24,14 +23,13 @@ function getIngredients(ingredients) {
                 headers: headers
             }).done((data) => {
                 recipes = data;
-                console.log("recipeinfo data", data);
                 for(let i = 0; i < recipes.length; i++){
                     let recipeObject = recipes[i];
                     console.log("recipe object: ", recipeObject);
                 }
             });
         }
-        console.log("getIngredients data: ", data);
+        console.log("getIngredients array: ", data);
         return data;
     }).fail((error) => {
         console.log("getIngredients Fail");

@@ -118,13 +118,13 @@ li {
   font-weight: bold;
 }
 
-#searchTabActive{
+.TabActive{
   background-color: $red;
   border-bottom: 2px solid $red;
   color: $white;
 }
 
-#recipeTabInactive{
+.TabInactive{
   background-color: $white;
   border-bottom: 2px solid $red;
   color: $black;
@@ -221,7 +221,10 @@ input::-webkit-input-placeholder {
   color: $white;
   border: none;
   font-weight: bold;
-  margin: 1em 0 0 2em;
+  // margin: 1em 0 0 2em;
+  position: fixed;
+  bottom: 30px;
+  left: 30px
 }
 #recipeDiv{
   background-color: white;
@@ -249,4 +252,11 @@ input::-webkit-input-placeholder {
 
 .recipeName {
   margin-top: 15px;
+}
+
+//Saved Recipe Overview Page//
+#savedDiv {
+  margin-top: 30px;
+  height: 77vh;
+  overflow: auto;
 }
