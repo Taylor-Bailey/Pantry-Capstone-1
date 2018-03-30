@@ -16,6 +16,7 @@ $font:'Noto Sans', sans-serif;
   body, html {
     height: 100%;
     font-family: $font;
+    color: $black;
   }
 
 h1 {
@@ -152,6 +153,7 @@ li {
   transition-duration: .4s;
   overflow: hidden;
 }
+
 #searchButton:after {
   content: '';
   position: absolute;
@@ -166,6 +168,21 @@ li {
   transform: scale(1, 1) translate(-50%);
   transform-origin: 50% 50%;
 }
+
+// #logoutButton:after {
+//   content: '';
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   width: 2px;
+//   height: 2px;
+//   background: $white;
+//   opacity: 0;
+//   color: $red;
+//   border-radius: 100%;
+//   transform: scale(1, 1) translate(-50%);
+//   transform-origin: 50% 50%;
+// }
 
 @keyframes ripple {
   0% {
@@ -188,7 +205,15 @@ li {
   transition: ease-out .2s;
 }
 
-#searchButton:focus:not(:active)::after {
+#logoutButton:active {
+  background-color: transparent;
+  color: $red;
+  transition: ease-out .2s;
+  border: 2px solid $red;
+  box-shadow: 0 1px 2px rgba(0,0,0,.3)
+}
+
+#searchButton:focus:not(:active)::after{
   animation: ripple 1.4s ease-out;
 }
 
@@ -219,12 +244,12 @@ input::-webkit-input-placeholder {
   height: 43px;
   background-color: $red;
   color: $white;
-  border: none;
+  border: 2px solid $red;
   font-weight: bold;
-  // margin: 1em 0 0 2em;
   position: fixed;
-  bottom: 30px;
-  left: 30px
+  bottom: 32px;
+  left: 32px;
+  padding: 0;
 }
 #recipeDiv{
   background-color: white;
