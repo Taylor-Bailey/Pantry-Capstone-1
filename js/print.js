@@ -97,7 +97,7 @@ let printSearchResults = (recipe) => {
             </div>
         </div>`
     );
-}
+};
 
 let printErrorMessage = () => {
     $('#resultsDiv').append(
@@ -107,6 +107,6 @@ let printErrorMessage = () => {
                 </div>
             </div>`
     );
-}
+};
 
 module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};

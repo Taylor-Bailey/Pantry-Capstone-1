@@ -32,7 +32,7 @@ function getIngredients(ingredients) { //passes ingredients in search field into
                 }
             });
         }else{// else if no engredients are found, print an error message to the DOM
-            printer.errorMessage();
+            printer.printErrorMessage();
         }
         console.log("getIngredients array: ", data);
         return data;
