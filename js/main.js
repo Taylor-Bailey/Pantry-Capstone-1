@@ -7,14 +7,13 @@ let fbKey = require("./fb-key");
 const ingredRequire = require("./ingredients");
 let printer = require('./print');
 
-users.logOut();
+// users.logOut();
 
 //LOGIN BUTTON//
 $("#loginButton").click(function() {
     console.log("clicked login");
     users.logInGoogle()
     .then((result) => {
-      console.log("result from login", result.user.uid);
       users.setUser(result.user);
       postUser.checkUser(result.user);
       printer.printSearchPage();
@@ -23,7 +22,6 @@ $("#loginButton").click(function() {
 
 //LOGOUT BUTTON//
 $("#logoutButton").click(() => {
-    console.log("main.logout clicked");
     users.logOut();
     printer.printLoginPage();
 });

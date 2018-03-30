@@ -88,37 +88,31 @@ let printSavedPage = () => {
     );
 };
 
-
-let showRecipes = document.getElementById("recipeDiv");
-
-function printSearchResults() {
+function printSearchResults(data) {
     console.log("print search results is showing up");
     $('#resultsDiv').html("");
-
-    ingred.getIngredients()
+    return ingred.getIngredients(data)
     .then((data) => {
         let results = "";
         for(let x = 0; x < data.length; x ++){
-            console.log("see what shows up", data[x]);
-
-            results += `<div id="recipeDiv" class ="row align-items-start">    
+        results += `
+        <div id="recipeDiv" class ="row align-items-start">    
             <img src="${data[x].image}" alt="Image of ${data[x].title}" class="recipeOverviewImage col-4">
-            <div class ="recipeInfo col-8">
-                <h2 id="" class="recipeOverviewName row justify-content-start">${data[x].title}</h2>
-                <div class ="row justify-content-end">
-                    <div class="col-3">
-                        <img src="img/time-blk.png" alt="clock icon" class="overviewIcon"><p>${time.cookTime(data[x].cookingMinutes)}
-                    </div>
-                    <div class="col-3">
-                        <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
+                <div class ="recipeInfo col-8">
+                    <h2 id="" class="recipeOverviewName row justify-content-start">${data[x].title}</h2>
+                    <div class ="row justify-content-end">
+                        <div class="col-3">
+                            <img src="img/time-blk.png" alt="clock icon" class="overviewIcon"><p>${time.cookTime(data[x].cookingMinutes)}
+                        </div>
+                        <div class="col-3">
+                            <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>`;
+        $('#resultsDiv').html(results);
     }
-    showRecipes.innerHTML = results;
     });
-    console.log("results printed to DOM");
 }
 
 module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};
