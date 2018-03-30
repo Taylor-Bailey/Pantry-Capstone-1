@@ -94,7 +94,7 @@ function printSearchResults(recipe) {
          `<div id="recipeDiv" class ="row align-items-start">    
             <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-4">
                 <div class ="recipeInfo col-8">
-                    <h2 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h2>
+                    <h3 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h3>
                 </div>
         </div>`);
     }
