@@ -88,15 +88,25 @@ let printSavedPage = () => {
     );
 };
 
-function printSearchResults(recipe) {
-
+let printSearchResults = (recipe) => {
     $('#resultsDiv').append(
-         `<div id="recipeDiv" class ="row align-items-start">    
+        `<div id="recipeDiv" class ="row align-items-start">    
             <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-4">
-                <div class ="recipeInfo col-8">
-                    <h3 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h3>
+            <div class ="recipeInfo col-8">
+                <h3 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h3>
+            </div>
+        </div>`
+    );
+}
+
+let printErrorMessage = () => {
+    $('#resultsDiv').append(
+        `<div id="recipeDiv" class ="row align-items-start">
+            <div class ="recipeInfo col-8">
+                    <h3 id="" class="recipeOverviewName row justify-content-center">You wouldn't want to eat that!</h3>
                 </div>
-        </div>`);
-    }
+            </div>`
+    );
+}
 
 module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage};
