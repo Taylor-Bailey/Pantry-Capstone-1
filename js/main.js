@@ -55,4 +55,5 @@ $(document).on("click" , ".recipeDiv", function(){
   event.preventDefault();
   var id = $(this).attr("id");
   console.log("recipe ID: ", id);
+  ingredRequire.getRecipeInfo();
 });
