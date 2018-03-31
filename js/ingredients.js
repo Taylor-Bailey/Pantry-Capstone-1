@@ -1,8 +1,8 @@
 "use strict";
 
 var $ = require('jquery');
-let key = require('./api-key.js');
-let printer = require('./print.js');
+let key = require('./api-key');
+let printer = require('./print');
 let recipes = [];
 const headers = {
     "X-Mashape-Key": `${key.spoonKey.apiKey}`,

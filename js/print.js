@@ -6,19 +6,18 @@ let time = require('./helper');
 
 
 let printLoginPage = () => {
-    $(document.body).html(
+    $("#content").html(
         `<div class="bg">
             <div class="row justify-content-center">
                 <h1 id="pantry">Pantry</h1>
                 <img src="img/veg-wht.png" id="loginIcon" alt="onion icon">
                 <button id="loginButton" type="button" >Log In</button> 
             </div>  
-        </div>
-        <script src="dist/app.js"></script>`);
+        </div>`);
 };
 
 let printSearchPage = () => {
-    $(document.body).html(
+    $("#content").html(
         `<div class="topTab">
         <div class="row align-items-start">
             <div id="searchTab" class="TabActive tab col">Search</div>
@@ -40,13 +39,11 @@ let printSearchPage = () => {
     </div>
     <div class="row justify-content-start">
         <button id="logoutButton" type="button" class="col-3">Log Out</button>
-    </div>
-    <script src="dist/app.js"></script>`
-    );
+    </div>`);
 };
 
 let printSavedPage = () => {
-    $(document.body).html(`
+    $("#content").html(`
     <div class="topTab">
         <div class="row align-items-start">
             <div id="searchTab" class="TabInactive tab col">Search</div>
@@ -70,9 +67,7 @@ let printSavedPage = () => {
             <div class="row justify-content-start">
                 <button id="logoutButton" type="button" class="col-3">Log Out</button>
             </div>
-        </div>
-    <script src="dist/app.js"></script>`
-    );
+        </div>`);
 };
 
 let printSearchResults = (recipe) => {

@@ -21,13 +21,13 @@ $("#loginButton").click(function() {
   });
 
 //LOGOUT BUTTON//
-$("#logoutButton").click(() => {
+$(document).on("click" , "#logoutButton", function() {
     users.logOut();
     printer.printLoginPage();
 });
 
 //SEARCH BUTTON//
-$("#searchButton").click(event =>{
+$(document).on("click" , "#searchButton", function(){
   event.preventDefault();
   let input = $("#searchInput").val();
   let ingredients = input;
@@ -39,13 +39,13 @@ $("#searchButton").click(event =>{
 });
 
 //SEARCH TAB BUTTON//
-$("#searchTab").click(event => {
+$(document).on("click" , "#searchTab", function() {
   event.preventDefault();
   printer.printSearchPage();
 });
 
 //RECIPES TAB BUTTON//
-$("#recipesTab").click(event => {
+$(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
   printer.printSavedPage();
 });
