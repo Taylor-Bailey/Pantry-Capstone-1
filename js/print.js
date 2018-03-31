@@ -79,7 +79,7 @@ let printSearchResults = (recipe) => {
     $('#resultsDiv').append(
         `<div id="${recipe.id}" class ="recipeDiv row align-items-start">    
             <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-6">
-            <h3 class="recipeOverviewName col-5">${recipe.title}</h3>
+            <h3 class="recipeOverviewName col-4">${recipe.title}</h3>
         </div>`
     );
 };
