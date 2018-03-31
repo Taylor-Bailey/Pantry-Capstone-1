@@ -17,11 +17,9 @@ function getIngredients(ingredients) { //passes ingredients in search field into
     }).then((data) => { // when ajax call is done, passes data to a function that will...
         // let ids = data.map(r => r.id);// takes data and, for each item in the array, gets the id of that item and places it in an array
         recipes = data;
-        console.log("recipes: ", recipes);
         $('#resultsDiv').html("");
         for(let i = 0; i < recipes.length; i++){
             let recipeObject = recipes[i];
-            console.log("recipeObjects: ", recipeObject);
             if(recipeObject.length !== 0){//if ingredient(s) are found run the recipe details ajax call
                 printer.printSearchResults(recipeObject);
             }else{// else if no engredients are found, print an error message to the DOM
@@ -36,12 +34,13 @@ function getIngredients(ingredients) { //passes ingredients in search field into
 
 function getRecipeInfo (recipeId) {
     return $.ajax({
-        url: `https://${key.spoonKey.domain}${key.spoonKey.recipeInfo}`,
+        url: `https://${key.spoonKey.domain}/recipes/${recipeId}/information`,
         method:'GET',
         headers: headers
     }).then((data) => {
         recipes = data;
         console.log("recipe Info: ", recipes);
+        return recipes;
     });
 }
 
