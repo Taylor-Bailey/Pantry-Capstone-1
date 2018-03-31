@@ -32,16 +32,15 @@ function userValues(obj){
 firebaseConfig.auth().onAuthStateChanged(function(user){
     if (user){
         currentUser.uid = user.uid;
-        currentUser.fbID = user.fbID;
         currentUser.photo = user.photoURL;
         currentUser.displayName = user.displayName;
-        console.log("User: ", currentUser);
+        // console.log("User: ", currentUser);
     }else{
         currentUser.uid = null;
         currentUser.fbID = null;
         currentUser.photo = null;
         currentUser.displayName = null;
-        console.log("No user logged into Pantry");
+        // console.log("No user logged into Pantry");
     }
 });
 

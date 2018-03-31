@@ -27,7 +27,7 @@ function getIngredients(ingredients) { //passes ingredients in search field into
                 $('#resultsDiv').html("");
                 for(let i = 0; i < recipes.length; i++){
                     let recipeObject = recipes[i];
-                    console.log("recipe object: ", recipeObject);
+                    // console.log("recipe object: ", recipeObject);
                     printer.printSearchResults(recipeObject);
                 }
             });

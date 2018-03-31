@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let ingred = require('./ingredients');
 let $ = require('jquery');
@@ -36,20 +36,7 @@ let printSearchPage = () => {
         <button id="searchButton" class="col-10">Find Recipes!</button>
     </div>
     <div id ="resultsDiv" class="container">
-        <div id="recipeDiv" class ="row align-items-start">              
-            <img src="img/chicken.png" alt="grilled chicken" id ="" class="recipeOverviewImage col-4">
-            <div class ="recipeInfo col-8">
-                <h2 id="" class="recipeOverviewName row justify-content-start">Recipe Name</h2>
-                <div class ="row justify-content-end">
-                    <div class="col-3">
-                        <img src="img/time-blk.png" alt="clock icon" class="overviewIcon">
-                    </div>
-                    <div class="col-3">
-                        <img src="img/fav-red.png" alt="favorite icon" class="overviewIcon">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="recipeDiv" class ="row align-items-start"></div>
     </div>
     <div class="row justify-content-start">
         <button id="logoutButton" type="button" class="col-3">Log Out</button>
@@ -90,11 +77,9 @@ let printSavedPage = () => {
 
 let printSearchResults = (recipe) => {
     $('#resultsDiv').append(
-        `<div id="recipeDiv" class ="row align-items-start">    
-            <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-4">
-            <div class ="recipeInfo col-8">
-                <h3 id="" class="recipeOverviewName row justify-content-start">${recipe.title}</h3>
-            </div>
+        `<div id="${recipe.id}" class ="recipeDiv row align-items-start">    
+            <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-6">
+            <h3 class="recipeOverviewName col-5">${recipe.title}</h3>
         </div>`
     );
 };
@@ -106,5 +91,6 @@ let printErrorMessage = () => {
         </div>`
     );
 };
+
 
 module.exports = {printSearchResults, printLoginPage, printSearchPage, printSavedPage, printErrorMessage};
