@@ -39,7 +39,6 @@ function getRecipeInfo (recipeId) {
         headers: headers
     }).then((data) => {
         recipes = data;
-        console.log("recipe Info: ", recipes);
         return recipes;
     });
 }

@@ -250,7 +250,7 @@ input::-webkit-input-placeholder {
   font-weight: bold;
   position: fixed;
   bottom: 23px;
-  left: 30px;
+  left: 15px;
   padding: 0;
 }
 
@@ -267,6 +267,11 @@ input::-webkit-input-placeholder {
 .overviewIcon{
   height: 25px;
   width: 25px;
+  margin-top: 20px;
+}
+
+#cookingMinutes {
+  margin: 25px 0 0 6px;
 }
 
 .recipeOverviewImage {
@@ -297,4 +302,20 @@ input::-webkit-input-placeholder {
   margin-top: 30px;
   height: 77vh;
   overflow: auto;
+}
+
+//Recipe Details Page
+.infoContainer {
+  overflow: auto;
+  height: 81vh;
+  background-color: white;
+}
+
+.favoriteIcon {
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 26px;
+  right: 30px;
+  padding: 0;
 }
