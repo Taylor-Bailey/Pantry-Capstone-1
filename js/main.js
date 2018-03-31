@@ -49,3 +49,10 @@ $("#recipesTab").click(event => {
   event.preventDefault();
   printer.printSavedPage();
 });
+
+//RECIPE VIEW BUTTON//
+$(document).on("click" , ".recipeDiv", function(){
+  event.preventDefault();
+  var id = $(this).attr("id");
+  console.log("recipe ID: ", id);
+});

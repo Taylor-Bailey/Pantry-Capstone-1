@@ -27,12 +27,12 @@ function getIngredients(ingredients) { //passes ingredients in search field into
                 $('#resultsDiv').html("");
                 for(let i = 0; i < recipes.length; i++){
                     let recipeObject = recipes[i];
-                    console.log("recipe object: ", recipeObject);
+                    // console.log("recipe object: ", recipeObject);
                     printer.printSearchResults(recipeObject);
                 }
             });
         }else{// else if no engredients are found, print an error message to the DOM
-            printer.errorMessage();
+            printer.printErrorMessage();
         }
         console.log("getIngredients array: ", data);
         return data;
