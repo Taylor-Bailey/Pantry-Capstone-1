@@ -33,7 +33,7 @@ h2 {
   font-family: $font;
   font-weight: bold;
   font-size: 25px;
-  color: $black;
+  color: $red;
 }
 
 h3 {
@@ -260,11 +260,11 @@ input::-webkit-input-placeholder {
 .overviewIcon{
   height: 25px;
   width: 25px;
-  margin-top: 20px;
+  margin-left: auto; 
 }
 
 #cookingMinutes {
-  margin: 25px 0 0 6px;
+  margin: 7px 15px 0 4px;
 }
 
 .recipeOverviewImage {

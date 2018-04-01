@@ -61,8 +61,8 @@ $(document).on("click" , ".recipeDiv", function(){
 });
 
 //FAVORITE BUTTON//
-$(".favoriteButton").on("click" , ".favoriteButton", function(){
+$(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
   var id = $(this).attr("id");
-  console.log("Favorite Button Recipe ID: ", id);
+  console.log("Favorite Recipe ID: ", id);
 });

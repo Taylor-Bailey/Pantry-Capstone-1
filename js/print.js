@@ -96,7 +96,7 @@ let printRecipeInfo = (recipeObject) => {
     <div class= "container">
         <div class="infoContainer row">
             <img src="${recipeObject.image}" class = "fullRecipeImage col-12" alt="Picture of ${recipeObject.title}">
-            <h2 class="recipeName col-9">${recipeObject.title}</h2>
+            <h2 class="recipeName col-12">${recipeObject.title}</h2>
                 <img src="img/time-blk.png" alt="clock icon" class="overviewIcon">
                 <p id="cookingMinutes">${recipeObject.readyInMinutes}m</p>
                 <h3 class = "col-12">Ingredients</h3>
