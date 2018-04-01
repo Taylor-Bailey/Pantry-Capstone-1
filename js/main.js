@@ -11,7 +11,6 @@ let printer = require('./print');
 
 //LOGIN BUTTON//
 $(document).on("click" , "#loginButton", function() {
-    console.log("clicked login");
     users.logInGoogle()
     .then((result) => {
       users.setUser(result.user);
@@ -23,7 +22,6 @@ $(document).on("click" , "#loginButton", function() {
 //LOGOUT BUTTON//
 $(document).on("click" , "#logoutButton", function() {
     users.logOut();
-    console.log("user logged out");
     printer.printLoginPage();
 });
 
