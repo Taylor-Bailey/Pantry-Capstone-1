@@ -54,11 +54,19 @@ i {
   color: $black;
 }
 
+ul {
+  list-style-type: none;
+}
+
 li {
   font-family: $font;
   font-size: .8em;
   padding: .5em 0.4em;
   list-style-type: none;
+}
+
+#content {
+  height: 100%;
 }
 
 button:focus, input:focus {outline:0;}
@@ -172,21 +180,6 @@ button:focus, input:focus {outline:0;}
   transform-origin: 50% 50%;
 }
 
-// #logoutButton:after {
-//   content: '';
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   width: 2px;
-//   height: 2px;
-//   background: $white;
-//   opacity: 0;
-//   color: $red;
-//   border-radius: 100%;
-//   transform: scale(1, 1) translate(-50%);
-//   transform-origin: 50% 50%;
-// }
-
 @keyframes ripple {
   0% {
     transform: scale(0, 0);
@@ -249,7 +242,7 @@ input::-webkit-input-placeholder {
   border: 2px solid $red;
   font-weight: bold;
   position: fixed;
-  bottom: 23px;
+  bottom: 20px;
   left: 15px;
   padding: 0;
 }
@@ -311,11 +304,10 @@ input::-webkit-input-placeholder {
   background-color: white;
 }
 
-.favoriteIcon {
-  height: 40px;
-  width: 40px;
+.favoriteButton {
+  width: 70px;
   position: fixed;
-  bottom: 26px;
-  right: 30px;
-  padding: 0;
+  bottom: 5px;
+  right: 21px;
+  padding: 10px;
 }

@@ -12,8 +12,7 @@ let cookTime = (data) => {
 let ingredients = (ingredientArray) => {
     let getIngredient = "";
     for(let i = 0; i < ingredientArray.length; i ++) {
-        getIngredient += ingredientArray[i].originalString + ", ";
-        console.log("getIngredient: ", getIngredient);
+        getIngredient += `<li>${ingredientArray[i].originalString}</li>`;
     }
     return getIngredient;
 };

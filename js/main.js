@@ -10,7 +10,7 @@ let printer = require('./print');
 // users.logOut();
 
 //LOGIN BUTTON//
-$("#loginButton").click(function() {
+$(document).on("click" , "#loginButton", function() {
     console.log("clicked login");
     users.logInGoogle()
     .then((result) => {
@@ -23,14 +23,14 @@ $("#loginButton").click(function() {
 //LOGOUT BUTTON//
 $(document).on("click" , "#logoutButton", function() {
     users.logOut();
+    console.log("user logged out");
     printer.printLoginPage();
 });
 
 //SEARCH BUTTON//
 $(document).on("click" , "#searchButton", function(){
   event.preventDefault();
-  let input = $("#searchInput").val();
-  let ingredients = input;
+  let ingredients = $("#searchInput").val();
   ingredRequire.getIngredients(ingredients)
   .then((data) => {
     printer.printSearchResults();
@@ -56,7 +56,13 @@ $(document).on("click" , ".recipeDiv", function(){
   var id = $(this).attr("id");
   ingredRequire.getRecipeInfo(id)
   .then((recipe) => {
-    console.log("Returned Recipe: ", recipe);
     printer.printRecipeInfo(recipe);
   });
+});
+
+//FAVORITE BUTTON//
+$(".favoriteButton").on("click" , ".favoriteButton", function(){
+  event.preventDefault();
+  var id = $(this).attr("id");
+  console.log("Favorite Button Recipe ID: ", id);
 });
