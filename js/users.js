@@ -1,11 +1,14 @@
 "use strict";
+
 let firebaseConfig = require("./config"),
 provider = new firebaseConfig.auth.GoogleAuthProvider();
+
 let currentUser = {
     uid: null, 
     displayName: null,
+    photo: null,
     fbID: null,
-    photo: null
+    recipes: []
 };
   
 let makeUser = (uid, displayName, photoURL) => {
@@ -32,15 +35,13 @@ function userValues(obj){
 firebaseConfig.auth().onAuthStateChanged(function(user){
     if (user){
         currentUser.uid = user.uid;
-        currentUser.photo = user.photoURL;
         currentUser.displayName = user.displayName;
-        // console.log("User: ", currentUser);
+        currentUser.photo = user.photoURL;
     }else{
         currentUser.uid = null;
-        currentUser.fbID = null;
         currentUser.photo = null;
         currentUser.displayName = null;
-        // console.log("No user logged into Pantry");
+        currentUser.fbID = null;
     }
 });
 
@@ -60,4 +61,4 @@ function getUser(){
     return currentUser.uid;
 }
 
-module.exports = {logInGoogle, logOut, setUser, getUser, makeUser, userValues};
+module.exports = {logInGoogle, logOut, setUser, getUser, makeUser, userValues, currentUser};

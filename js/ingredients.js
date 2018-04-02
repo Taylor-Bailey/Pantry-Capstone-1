@@ -3,6 +3,7 @@
 var $ = require('jquery');
 let key = require('./api-key');
 let printer = require('./print');
+let users = require('./users.js');
 let recipes = [];
 const headers = {
     "X-Mashape-Key": `${key.spoonKey.apiKey}`,
@@ -11,11 +12,10 @@ const headers = {
 
 function getIngredients(ingredients) { //passes ingredients in search field into function
     return $.ajax({ 
-      url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
+      url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=20&ranking=1`,
       method: 'GET',
       headers: headers
     }).then((data) => { // when ajax call is done, passes data to a function that will...
-        // let ids = data.map(r => r.id);// takes data and, for each item in the array, gets the id of that item and places it in an array
         recipes = data;
         $('#resultsDiv').html("");
         for(let i = 0; i < recipes.length; i++){
@@ -43,4 +43,17 @@ function getRecipeInfo (recipeId) {
     });
 }
 
-module.exports = {getIngredients, getRecipeInfo};
+function getUserRecipes (userObject) {
+    console.log("ID's: ", userObject);
+    // return $.ajax({
+        // url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${users.currentUser.recipes}`,
+    //     method:'GET',
+    //     headers: headers
+    // }).then((data) => {
+    //     console.log("Recipes: ", data);
+    //     recipes = data;
+    //     return recipes;
+    // });
+}
+
+module.exports = {getIngredients, getRecipeInfo, getUserRecipes};

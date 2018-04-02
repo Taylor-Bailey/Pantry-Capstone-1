@@ -10,8 +10,7 @@ let printer = require('./print');
 // users.logOut();
 
 //LOGIN BUTTON//
-$("#loginButton").click(function() {
-    console.log("clicked login");
+$(document).on("click" , "#loginButton", function() {
     users.logInGoogle()
     .then((result) => {
       users.setUser(result.user);
@@ -29,8 +28,7 @@ $(document).on("click" , "#logoutButton", function() {
 //SEARCH BUTTON//
 $(document).on("click" , "#searchButton", function(){
   event.preventDefault();
-  let input = $("#searchInput").val();
-  let ingredients = input;
+  let ingredients = $("#searchInput").val();
   ingredRequire.getIngredients(ingredients)
   .then((data) => {
     printer.printSearchResults();
@@ -48,6 +46,7 @@ $(document).on("click" , "#searchTab", function() {
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
   printer.printSavedPage();
+  postUser.findRecipes();
 });
 
 //RECIPE VIEW BUTTON//
@@ -56,7 +55,20 @@ $(document).on("click" , ".recipeDiv", function(){
   var id = $(this).attr("id");
   ingredRequire.getRecipeInfo(id)
   .then((recipe) => {
-    console.log("Returned Recipe: ", recipe);
     printer.printRecipeInfo(recipe);
   });
 });
+
+let recipeObject = {
+  recipeID : [],
+  fbID: users.currentUser.fbID
+};
+
+//FAVORITE BUTTON//
+$(document).on("click" , ".favoriteButton", function(){
+  event.preventDefault();
+  var id = $(this).attr("id");
+  recipeObject.recipeID.push(id);
+  postUser.updateUser(recipeObject);
+});
+

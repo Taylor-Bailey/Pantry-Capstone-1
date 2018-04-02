@@ -96,8 +96,8 @@ let printRecipeInfo = (recipeObject) => {
     <div class= "container">
         <div class="infoContainer row">
             <img src="${recipeObject.image}" class = "fullRecipeImage col-12" alt="Picture of ${recipeObject.title}">
-            <h2 class="recipeName col-9">${recipeObject.title}</h2>
-                <img src="img/time-blk.png" alt="clock icon" class="overviewIcon float-left">
+            <h2 class="recipeName col-12">${recipeObject.title}</h2>
+                <img src="img/time-blk.png" alt="clock icon" class="overviewIcon">
                 <p id="cookingMinutes">${recipeObject.readyInMinutes}m</p>
                 <h3 class = "col-12">Ingredients</h3>
                     <ul class = "col-12">${help.ingredients(recipeObject.extendedIngredients)}</ul>
@@ -107,7 +107,7 @@ let printRecipeInfo = (recipeObject) => {
     </div>
     <div class="row justify-content-start">
             <button id="logoutButton" type="button" class="col-3">Log Out</button>
-            <img src="img/fav-red.png" alt="favorite icon" class="favoriteIcon">
+            <img src="img/fav-red.png" alt="favorite icon" class= "favoriteButton" id="${recipeObject.id}">
     </div>`);
 };
 
