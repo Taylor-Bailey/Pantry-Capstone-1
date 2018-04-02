@@ -43,17 +43,30 @@ function getRecipeInfo (recipeId) {
     });
 }
 
-function getUserRecipes (userObject) {
-    console.log("ID's: ", userObject);
-    // return $.ajax({
-        // url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${users.currentUser.recipes}`,
-    //     method:'GET',
-    //     headers: headers
-    // }).then((data) => {
-    //     console.log("Recipes: ", data);
-    //     recipes = data;
-    //     return recipes;
-    // });
+function getUserRecipes (recipeArray) {
+    return $.ajax({
+        url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${recipeArray}`,
+        method:'GET',
+        headers: headers
+    }).then((data) => {
+        console.log("Recipes: ", data);
+        recipes = data;
+        $('#resultsDiv').html("");
+        for(let i = 0; i < recipes.length; i++){
+            let recipeObject = recipes[i];
+            if(recipeObject.length !== 0){
+                printer.printSavedResults(recipeObject);
+                // console.log("Recipe Objects: ", recipeObject);
+            }else{
+            printer.printErrorMessage();
+            }
+        }
+    }).fail((error) => {
+        console.log("getIngredients Fail");
+        return error;
+    });
 }
 
 module.exports = {getIngredients, getRecipeInfo, getUserRecipes};
+
+//promise.all pass array runn through loop

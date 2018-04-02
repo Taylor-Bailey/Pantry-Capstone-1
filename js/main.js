@@ -13,6 +13,7 @@ let printer = require('./print');
 $(document).on("click" , "#loginButton", function() {
     users.logInGoogle()
     .then((result) => {
+      console.log("result", result);
       users.setUser(result.user);
       postUser.checkUser(result.user);
       printer.printSearchPage();
@@ -45,8 +46,15 @@ $(document).on("click" , "#searchTab", function() {
 //RECIPES TAB BUTTON//
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
-  printer.printSavedPage();
-  postUser.findRecipes();
+  postUser.findRecipes(users.currentUser.uid)
+  .then((recipes) => {
+    printer.printSavedPage();
+    let recipeIdArray = [];
+    for(let recipe in recipes){
+      recipeIdArray.push(recipes[recipe].recipeID);
+    }
+    ingredRequire.getUserRecipes(recipeIdArray);
+  });
 });
 
 //RECIPE VIEW BUTTON//
@@ -59,16 +67,28 @@ $(document).on("click" , ".recipeDiv", function(){
   });
 });
 
-let recipeObject = {
-  recipeID : [],
-  fbID: users.currentUser.fbID
-};
+//SAVED RECIPE VIEW BUTTON//
+$(document).on("click" , ".savedRecipeDiv", function(){
+  event.preventDefault();
+  var id = $(this).attr("id");
+  console.log("This Recipe's ID is ", id);
+  ingredRequire.getRecipeInfo(id)
+  .then((recipe) => {
+    console.log("Saved Recipe: ", recipe);
+    printer.printSavedInfo(recipe);
+  });
+});
+
 
 //FAVORITE BUTTON//
 $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
   var id = $(this).attr("id");
-  recipeObject.recipeID.push(id);
+      let recipeObject = {
+      recipeID : id,
+      uid: users.currentUser.uid
+      };
   postUser.updateUser(recipeObject);
 });
 
+// postUser.showRecipes();
