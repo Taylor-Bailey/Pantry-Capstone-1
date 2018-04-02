@@ -62,11 +62,13 @@ $(document).on("click" , ".recipeDiv", function(){
 $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
   var id = $(this).attr("id");
-  console.log("Favorite Recipe ID: ", id);
-  console.log("User ID: ", users.currentUser);
-  users.getUser()
-  .then((res) => {
-    console.log("RES: ", res);
-    postUser.updateUser();
-  });
+  console.log("recipe ID: ", id);
+  users.currentUser.recipes.push(id);
+  console.log("Lets see what we get: ",users.currentUser);
+  
+  // let userObject = {
+    // fbId: users.currentUser.fbId,
+    // recipes: id
+  // }
+  // postUser.updateUser(userObject);
 });

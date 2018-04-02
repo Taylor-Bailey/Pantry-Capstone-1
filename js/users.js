@@ -4,7 +4,8 @@ provider = new firebaseConfig.auth.GoogleAuthProvider();
 let currentUser = {
     uid: null, 
     displayName: null,
-    photo: null
+    photo: null,
+    recipes: []
 };
   
 let makeUser = (uid, displayName, photoURL) => {
