@@ -1,6 +1,8 @@
 "use strict";
+
 let firebaseConfig = require("./config"),
 provider = new firebaseConfig.auth.GoogleAuthProvider();
+
 let currentUser = {
     uid: null, 
     displayName: null,
@@ -25,7 +27,6 @@ function userValues(obj){
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
         currentUser.displayName = obj.displayName ? obj.displayName : currentUser.displayName;
         currentUser.photo = obj.photoURL ? obj.photoURL : currentUser.photoURL;
-        currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         resolve(currentUser);
     });
 }
@@ -36,13 +37,11 @@ firebaseConfig.auth().onAuthStateChanged(function(user){
         currentUser.uid = user.uid;
         currentUser.displayName = user.displayName;
         currentUser.photo = user.photoURL;
-        // console.log("User: ", currentUser);
     }else{
         currentUser.uid = null;
         currentUser.photo = null;
         currentUser.displayName = null;
         currentUser.fbID = null;
-        // console.log("No user logged into Pantry");
     }
 });
 

@@ -3,6 +3,7 @@
 var $ = require('jquery');
 let key = require('./api-key');
 let printer = require('./print');
+let users = require('./users.js');
 let recipes = [];
 const headers = {
     "X-Mashape-Key": `${key.spoonKey.apiKey}`,
@@ -42,4 +43,17 @@ function getRecipeInfo (recipeId) {
     });
 }
 
-module.exports = {getIngredients, getRecipeInfo};
+function getUserRecipes (userObject) {
+    console.log("ID's: ", userObject);
+    // return $.ajax({
+        // url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${users.currentUser.recipes}`,
+    //     method:'GET',
+    //     headers: headers
+    // }).then((data) => {
+    //     console.log("Recipes: ", data);
+    //     recipes = data;
+    //     return recipes;
+    // });
+}
+
+module.exports = {getIngredients, getRecipeInfo, getUserRecipes};

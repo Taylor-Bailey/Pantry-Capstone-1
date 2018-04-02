@@ -46,6 +46,7 @@ $(document).on("click" , "#searchTab", function() {
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
   printer.printSavedPage();
+  postUser.findRecipes();
 });
 
 //RECIPE VIEW BUTTON//
@@ -58,12 +59,16 @@ $(document).on("click" , ".recipeDiv", function(){
   });
 });
 
+let recipeObject = {
+  recipeID : [],
+  fbID: users.currentUser.fbID
+};
+
 //FAVORITE BUTTON//
 $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
   var id = $(this).attr("id");
-  console.log("recipe ID: ", id);
-  console.log("Lets see what we get: ",users.currentUser);
-  users.currentUser.recipes.push(id);
-  postUser.updateUser(users.currentUser);
+  recipeObject.recipeID.push(id);
+  postUser.updateUser(recipeObject);
 });
+
