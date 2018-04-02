@@ -48,12 +48,16 @@ $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
   postUser.findRecipes(users.currentUser.uid)
   .then((recipes) => {
-    printer.printSavedPage();
+    console.log("Recipes Object: ", recipes);
+    printer.printSavedPage(recipes);
     let recipeIdArray = [];
+    let recipefbId = "";
     for(let recipe in recipes){
       recipeIdArray.push(recipes[recipe].recipeID);
+      recipefbId = recipes[recipe].recipeFbId;
+      console.log("Recipe FB ID: ", recipefbId);
     }
-    ingredRequire.getUserRecipes(recipeIdArray);
+    ingredRequire.getUserRecipes(recipeIdArray, recipefbId);
   });
 });
 
@@ -71,11 +75,12 @@ $(document).on("click" , ".recipeDiv", function(){
 $(document).on("click" , ".savedRecipeDiv", function(){
   event.preventDefault();
   var id = $(this).attr("id");
+  var fbId = $(this).attr("value");
   console.log("This Recipe's ID is ", id);
   ingredRequire.getRecipeInfo(id)
   .then((recipe) => {
     console.log("Saved Recipe: ", recipe);
-    printer.printSavedInfo(recipe);
+    printer.printSavedInfo(recipe, fbId);
   });
 });
 
@@ -91,4 +96,26 @@ $(document).on("click" , ".favoriteButton", function(){
   postUser.updateUser(recipeObject);
 });
 
-// postUser.showRecipes();
+//DELETE BUTTON//
+$(document).on("click",".deleteButton", function(){
+  event.preventDefault();
+  var fbId = $(this).attr("value");
+  console.log("Recipe FB ID to be deleted is", fbId);
+  postUser.deleteRecipe(fbId)
+  .then((data) => {
+    postUser.findRecipes(users.currentUser.uid)
+    .then((recipes) => {
+      console.log("Recipes Object: ", recipes);
+      printer.printSavedPage(recipes);
+      let recipeIdArray = [];
+      let recipefbId = "";
+      for(let recipe in recipes){
+        recipeIdArray.push(recipes[recipe].recipeID);
+        recipefbId = recipes[recipe].recipeFbId;
+        console.log("Recipe FB ID: ", recipefbId);
+      }
+      ingredRequire.getUserRecipes(recipeIdArray, recipefbId);
+    });
+  });
+    
+  });
