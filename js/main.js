@@ -63,12 +63,7 @@ $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
   var id = $(this).attr("id");
   console.log("recipe ID: ", id);
-  users.currentUser.recipes.push(id);
   console.log("Lets see what we get: ",users.currentUser);
-  
-  // let userObject = {
-    // fbId: users.currentUser.fbId,
-    // recipes: id
-  // }
-  // postUser.updateUser(userObject);
+  users.currentUser.recipes.push(id);
+  postUser.updateUser(users.currentUser);
 });

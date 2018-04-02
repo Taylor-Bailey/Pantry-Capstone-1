@@ -5,6 +5,7 @@ let currentUser = {
     uid: null, 
     displayName: null,
     photo: null,
+    fbID: null,
     recipes: []
 };
   
@@ -20,9 +21,11 @@ let makeUser = (uid, displayName, photoURL) => {
 
 function userValues(obj){ 
     return new Promise((resolve, reject) => {
+        currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         currentUser.uid = obj.uid ? obj.uid : currentUser.uid;
         currentUser.displayName = obj.displayName ? obj.displayName : currentUser.displayName;
         currentUser.photo = obj.photoURL ? obj.photoURL : currentUser.photoURL;
+        currentUser.fbID = obj.fbID ? obj.fbID : currentUser.fbID;
         resolve(currentUser);
     });
 }
@@ -38,6 +41,7 @@ firebaseConfig.auth().onAuthStateChanged(function(user){
         currentUser.uid = null;
         currentUser.photo = null;
         currentUser.displayName = null;
+        currentUser.fbID = null;
         // console.log("No user logged into Pantry");
     }
 });

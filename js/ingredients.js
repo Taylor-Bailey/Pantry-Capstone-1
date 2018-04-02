@@ -11,11 +11,10 @@ const headers = {
 
 function getIngredients(ingredients) { //passes ingredients in search field into function
     return $.ajax({ 
-      url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=1`,
+      url: `https://${key.spoonKey.domain}${key.spoonKey.ingredients}?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=20&ranking=1`,
       method: 'GET',
       headers: headers
     }).then((data) => { // when ajax call is done, passes data to a function that will...
-        // let ids = data.map(r => r.id);// takes data and, for each item in the array, gets the id of that item and places it in an array
         recipes = data;
         $('#resultsDiv').html("");
         for(let i = 0; i < recipes.length; i++){

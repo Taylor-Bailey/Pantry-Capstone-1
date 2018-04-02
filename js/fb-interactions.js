@@ -21,7 +21,7 @@ function addUser(userObject) {
 //UPDATE USER IN FIREBASE//
 function updateUser(userObject) {
     return $.ajax({
-        url: `${firebaseConfig.getFBsettings().databaseURL}/users/${userObject.fbID}/recipes`,
+        url: `${firebaseConfig.getFBsettings().databaseURL}/users/${userObject.fbID}.json`,
         type: 'PUT',
         data: JSON.stringify(userObject),
         dataType: 'json'
