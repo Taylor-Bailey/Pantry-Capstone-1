@@ -46,8 +46,6 @@ $(document).on("click" , "#searchTab", function() {
 //RECIPES TAB BUTTON//
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
-  postUser.findUser();
-  console.log("recipes tab user id", users.currentUser.uid);
   postUser.findRecipes(users.currentUser.uid);
   // ingredRequire.getUserRecipes();
   printer.printSavedPage();
@@ -67,12 +65,11 @@ $(document).on("click" , ".recipeDiv", function(){
 //FAVORITE BUTTON//
 $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
+  var id = $(this).attr("id");
       let recipeObject = {
-      recipeID : [],
+      recipeID : id,
       UID: users.currentUser.uid
       };
-  var id = $(this).attr("id");
-  recipeObject.recipeID.push(id);
   postUser.updateUser(recipeObject);
 });
 
