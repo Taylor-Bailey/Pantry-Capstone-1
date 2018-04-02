@@ -69,9 +69,9 @@ let printSavedPage = () => {
     </div>`);
 };
 
-let printSavedResults = (recipe) => {
+let printSavedResults = (recipe, recipefbId) => {
     $('#savedDiv').append(
-        `<div id="${recipe.id}" class ="savedRecipeDiv row align-items-start">    
+        `<div id="${recipe.id}" value="${recipefbId}" class ="savedRecipeDiv row align-items-start">    
             <img src="${recipe.image}" alt="Image of ${recipe.title}" class="recipeOverviewImage col-6">
             <h3 class="recipeOverviewName col-4">${recipe.title}</h3>
         </div>`);
@@ -111,7 +111,7 @@ let printRecipeInfo = (recipeObject) => {
     </div>`);
 };
 
-let printSavedInfo = (recipeObject) => {
+let printSavedInfo = (recipeObject, fbId) => {
     $("#content").html(` 
     <div class="topTab">
         <div class="row align-items-start">
@@ -134,7 +134,7 @@ let printSavedInfo = (recipeObject) => {
         <div class="row justify-content-center text-center">
             <button id="logoutButton" type="button" class="col-3">Log Out</button>
             <div class="col-3"><img src="img/book-blk.png" alt="cookbook icon" id="bookIcon2"></div>
-            <button id="deleteButton" type="button" class="col-3">Remove</button>
+            <button id="${recipeObject.id}" value="${fbId}" type="button" class="deleteButton col-3">Remove</button>
         </div>
     </div>`);
 };

@@ -27,7 +27,6 @@ function getIngredients(ingredients) { //passes ingredients in search field into
             }
         }
     }).fail((error) => {
-        console.log("getIngredients Fail");
         return error;
     });
 }
@@ -43,7 +42,7 @@ function getRecipeInfo (recipeId) {
     });
 }
 
-function getUserRecipes (recipeArray) {
+function getUserRecipes (recipeArray, recipefbId) {
     return $.ajax({
         url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${recipeArray}`,
         method:'GET',
@@ -55,14 +54,12 @@ function getUserRecipes (recipeArray) {
         for(let i = 0; i < recipes.length; i++){
             let recipeObject = recipes[i];
             if(recipeObject.length !== 0){
-                printer.printSavedResults(recipeObject);
-                // console.log("Recipe Objects: ", recipeObject);
+                printer.printSavedResults(recipeObject, recipefbId);
             }else{
             printer.printErrorMessage();
             }
         }
     }).fail((error) => {
-        console.log("getIngredients Fail");
         return error;
     });
 }

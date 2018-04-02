@@ -28,8 +28,12 @@ function updateUser(userObject) {
         type: 'POST',
         data: JSON.stringify(userObject),
         dataType: 'json'
-    }).done((userID) => {
-        return userID;
+    }).done((recipeFbId) => {
+        console.log("user ID: ", recipeFbId);
+        let recipeObj = {
+            recipeFbId : recipeFbId.name
+        };
+        addFBkeys(recipeObj, "recipes", recipeFbId.name);
     });
 }
 
@@ -38,7 +42,6 @@ let findUser = (uid) => {
     return $.ajax({
         url: `${firebaseConfig.getFBsettings().databaseURL}/users.json?orderBy="uid"&equalTo="${uid}"`
     }).done((resolve) => {
-        console.log("find user is returning ", resolve);
         return resolve;
     }).fail((error) => {
         return error;
@@ -53,6 +56,17 @@ let findRecipes = (uid) => {
         return recipeIDs;
     }).fail((error) => {
         return error;
+    });
+};
+
+//DELETE SAVED RECIPES//
+let deleteRecipe = (fbID) => {
+    console.log("Delete This Recipe: ", fbID);
+    return $.ajax({
+      url: `${firebaseConfig.getFBsettings().databaseURL}/recipes/${fbID}.json`,
+      method: 'DELETE'
+    }).then (() => {
+        console.log("recipe deleted");
     });
 };
 
@@ -85,4 +99,16 @@ let checkUser = (userObject) => {
     });
 };
 
-module.exports = {addUser, updateUser, findUser,checkUser, findRecipes};
+//ADD FB ID TO ANY FB OBJECT
+let addFBkeys = (object, element, FBkey) => {
+    return $.ajax({
+        url: `${firebaseConfig.getFBsettings().databaseURL}/${element}/${FBkey}.json`,
+        type: 'PATCH',
+        data: JSON.stringify(object),
+        dataType: 'json'
+    });
+};
+
+
+
+module.exports = {addUser, updateUser, findUser,checkUser, findRecipes,addFBkeys, deleteRecipe};
