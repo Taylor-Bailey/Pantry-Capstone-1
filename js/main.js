@@ -46,9 +46,15 @@ $(document).on("click" , "#searchTab", function() {
 //RECIPES TAB BUTTON//
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
-  postUser.findRecipes(users.currentUser.uid);
-  // ingredRequire.getUserRecipes();
   printer.printSavedPage();
+  postUser.findRecipes(users.currentUser.uid)
+  .then((recipes) => {
+    let recipeIdArray = [];
+    for(let recipe in recipes){
+      recipeIdArray.push(recipes[recipe].recipeID);
+    }
+    ingredRequire.getUserRecipes(recipeIdArray);
+  });
 });
 
 //RECIPE VIEW BUTTON//
@@ -68,8 +74,9 @@ $(document).on("click" , ".favoriteButton", function(){
   var id = $(this).attr("id");
       let recipeObject = {
       recipeID : id,
-      UID: users.currentUser.uid
+      uid: users.currentUser.uid
       };
   postUser.updateUser(recipeObject);
 });
 
+// postUser.showRecipes();

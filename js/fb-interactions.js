@@ -1,5 +1,7 @@
 "use strict";
 
+let recipeIDs = [];
+
 // REQUIRES JQUERY, KEY, USER FUNCITONS //
 let $ = require('../lib/node_modules/jquery'),
     firebaseConfig = require('./config'),
@@ -48,7 +50,6 @@ let findRecipes = (uid) => {
     return $.ajax({
         url: `${firebaseConfig.getFBsettings().databaseURL}/recipes.json?orderBy="uid"&equalTo="${uid}"`
     }).done((recipeIDs) =>{
-        console.log("Recipe IDs: ", recipeIDs);
         return recipeIDs;
     }).fail((error) => {
         return error;
