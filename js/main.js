@@ -13,6 +13,7 @@ let printer = require('./print');
 $(document).on("click" , "#loginButton", function() {
     users.logInGoogle()
     .then((result) => {
+      console.log("result", result);
       users.setUser(result.user);
       postUser.checkUser(result.user);
       printer.printSearchPage();
@@ -46,7 +47,9 @@ $(document).on("click" , "#searchTab", function() {
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
   postUser.findUser();
-  ingredRequire.getUserRecipes();
+  console.log("recipes tab user id", users.currentUser.uid);
+  postUser.findRecipes(users.currentUser.uid);
+  // ingredRequire.getUserRecipes();
   printer.printSavedPage();
 });
 

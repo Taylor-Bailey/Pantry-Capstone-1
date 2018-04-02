@@ -36,9 +36,20 @@ let findUser = (uid) => {
     return $.ajax({
         url: `${firebaseConfig.getFBsettings().databaseURL}/users.json?orderBy="uid"&equalTo="${uid}"`
     }).done((resolve) => {
-        ingred.getUserRecipes(resolve);
         console.log("find user is returning ", resolve);
         return resolve;
+    }).fail((error) => {
+        return error;
+    });
+};
+
+//FIND USER RECIPES//
+let findRecipes = (uid) => {
+    return $.ajax({
+        url: `${firebaseConfig.getFBsettings().databaseURL}/recipes.json?orderBy="uid"&equalTo="${uid}"`
+    }).done((recipeIDs) =>{
+        console.log("Recipe IDs: ", recipeIDs);
+        return recipeIDs;
     }).fail((error) => {
         return error;
     });
@@ -73,4 +84,4 @@ let checkUser = (userObject) => {
     });
 };
 
-module.exports = {addUser, updateUser, findUser,checkUser};
+module.exports = {addUser, updateUser, findUser,checkUser, findRecipes};
