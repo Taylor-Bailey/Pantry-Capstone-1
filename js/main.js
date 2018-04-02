@@ -45,8 +45,9 @@ $(document).on("click" , "#searchTab", function() {
 //RECIPES TAB BUTTON//
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
+  postUser.findUser();
+  ingredRequire.getUserRecipes();
   printer.printSavedPage();
-  postUser.findRecipes();
 });
 
 //RECIPE VIEW BUTTON//
@@ -59,14 +60,14 @@ $(document).on("click" , ".recipeDiv", function(){
   });
 });
 
-let recipeObject = {
-  recipeID : [],
-  fbID: users.currentUser.fbID
-};
 
 //FAVORITE BUTTON//
 $(document).on("click" , ".favoriteButton", function(){
   event.preventDefault();
+      let recipeObject = {
+      recipeID : [],
+      UID: users.currentUser.uid
+      };
   var id = $(this).attr("id");
   recipeObject.recipeID.push(id);
   postUser.updateUser(recipeObject);

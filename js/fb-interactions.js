@@ -23,7 +23,7 @@ function addUser(userObject) {
 function updateUser(userObject) {
     return $.ajax({
         url: `${firebaseConfig.getFBsettings().databaseURL}/recipes.json`,
-        type: 'PUT',
+        type: 'POST',
         data: JSON.stringify(userObject),
         dataType: 'json'
     }).done((userID) => {

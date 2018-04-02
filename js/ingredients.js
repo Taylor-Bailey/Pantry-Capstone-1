@@ -45,15 +45,15 @@ function getRecipeInfo (recipeId) {
 
 function getUserRecipes (userObject) {
     console.log("ID's: ", userObject);
-    // return $.ajax({
-        // url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${users.currentUser.recipes}`,
-    //     method:'GET',
-    //     headers: headers
-    // }).then((data) => {
-    //     console.log("Recipes: ", data);
-    //     recipes = data;
-    //     return recipes;
-    // });
+    return $.ajax({
+        url: `https://${key.spoonKey.domain}/recipes/informationBulk?ids=${users.currentUser.recipes}`,
+        method:'GET',
+        headers: headers
+    }).then((data) => {
+        console.log("Recipes: ", data);
+        recipes = data;
+        return recipes;
+    });
 }
 
 module.exports = {getIngredients, getRecipeInfo, getUserRecipes};
