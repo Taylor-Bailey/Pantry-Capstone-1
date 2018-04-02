@@ -54,9 +54,10 @@ function getUserRecipes (recipeArray) {
         $('#resultsDiv').html("");
         for(let i = 0; i < recipes.length; i++){
             let recipeObject = recipes[i];
-            if(recipeObject.length !== 0){//if ingredient(s) are found run the recipe details ajax call
+            if(recipeObject.length !== 0){
                 printer.printSavedResults(recipeObject);
-            }else{// else if no engredients are found, print an error message to the DOM
+                // console.log("Recipe Objects: ", recipeObject);
+            }else{
             printer.printErrorMessage();
             }
         }

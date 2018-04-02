@@ -229,6 +229,17 @@ input::-webkit-input-placeholder {
   width: 40px;
 }
 
+#bookIcon {
+  height: 70px;
+  width: 70px;
+}
+
+#bookIcon2 {
+  height: 50px;
+  width: 50px;
+  margin-top: 21px;
+}
+
 #resultsDiv {
   height: 21.6em;
   margin-top: 1.2em;
@@ -253,11 +264,30 @@ input::-webkit-input-placeholder {
   padding: 0;
 }
 
+#deleteButton{
+  height: 43px;
+  background-color: $red;
+  color: $white;
+  border: 2px solid $red;
+  font-weight: bold;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  padding: 0;
+}
+
 .recipeDiv{
   background-color: white;
   padding: 15px 0;
   margin-bottom: 1em;
 }
+
+.savedRecipeDiv{
+    background-color: white;
+    padding: 15px 0;
+    margin-bottom: 1em;
+  }
+
 
 .recipeInfo{
   height: 85px;
@@ -299,7 +329,7 @@ input::-webkit-input-placeholder {
 //Saved Recipe Overview Page//
 #savedDiv {
   margin-top: 30px;
-  height: 77vh;
+  height: 64vh;
   overflow: auto;
 }
 

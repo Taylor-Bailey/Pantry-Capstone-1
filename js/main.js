@@ -46,9 +46,9 @@ $(document).on("click" , "#searchTab", function() {
 //RECIPES TAB BUTTON//
 $(document).on("click" , "#recipesTab", function() {
   event.preventDefault();
-  printer.printSavedPage();
   postUser.findRecipes(users.currentUser.uid)
   .then((recipes) => {
+    printer.printSavedPage();
     let recipeIdArray = [];
     for(let recipe in recipes){
       recipeIdArray.push(recipes[recipe].recipeID);
@@ -64,6 +64,18 @@ $(document).on("click" , ".recipeDiv", function(){
   ingredRequire.getRecipeInfo(id)
   .then((recipe) => {
     printer.printRecipeInfo(recipe);
+  });
+});
+
+//SAVED RECIPE VIEW BUTTON//
+$(document).on("click" , ".savedRecipeDiv", function(){
+  event.preventDefault();
+  var id = $(this).attr("id");
+  console.log("This Recipe's ID is ", id);
+  ingredRequire.getRecipeInfo(id)
+  .then((recipe) => {
+    console.log("Saved Recipe: ", recipe);
+    printer.printSavedInfo(recipe);
   });
 });
 
