@@ -48,7 +48,6 @@ function getUserRecipes (recipeArray, recipefbId) {
         method:'GET',
         headers: headers
     }).then((data) => {
-        console.log("Recipes: ", data);
         recipes = data;
         $('#resultsDiv').html("");
         for(let i = 0; i < recipes.length; i++){
