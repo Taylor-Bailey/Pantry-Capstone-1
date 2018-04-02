@@ -29,7 +29,6 @@ function updateUser(userObject) {
         data: JSON.stringify(userObject),
         dataType: 'json'
     }).done((recipeFbId) => {
-        console.log("user ID: ", recipeFbId);
         let recipeObj = {
             recipeFbId : recipeFbId.name
         };
@@ -61,12 +60,10 @@ let findRecipes = (uid) => {
 
 //DELETE SAVED RECIPES//
 let deleteRecipe = (fbID) => {
-    console.log("Delete This Recipe: ", fbID);
     return $.ajax({
       url: `${firebaseConfig.getFBsettings().databaseURL}/recipes/${fbID}.json`,
       method: 'DELETE'
     }).then (() => {
-        console.log("recipe deleted");
     });
 };
 
