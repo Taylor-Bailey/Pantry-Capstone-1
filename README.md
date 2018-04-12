@@ -58,7 +58,9 @@ Ensure that the following dependencies are installed to the node modules within 
 
 ## Author
 
-* **Taylor Bailey** - *Initial work* - [linkdIn](https://www.linkedin.com/in/taylor-bailey-699aa8146/)
+* **Taylor Bailey** - *INITIAL WORK*
+* [linkdIn](https://www.linkedin.com/in/taylor-bailey-699aa8146/)
+* **Portfolio (Coming Soon)**
 
 
 ## Special Thanks
