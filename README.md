@@ -53,8 +53,8 @@ Ensure that the following dependencies are installed to the node modules within 
 * [Sass](https://sass-lang.com/)
 
 ## Contributing
-[Report Issues Here](https://github.com/Taylor-Bailey/Pantry-Capstone-1/issues)
-[Bug Reporting Outline](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines#General_Outline_of_a_Bug_Report)
+* [Report Issues Here](https://github.com/Taylor-Bailey/Pantry-Capstone-1/issues)
+* [Bug Reporting Outline](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines#General_Outline_of_a_Bug_Report)
 
 ## Author
 
