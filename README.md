@@ -37,6 +37,7 @@ Welcome to Pantry, an app that takes the food you have on hand and finds delicio
     ingredients: "/recipes/findByIngredients",
   };`
 9. Happy Coding!
+10. When viewing in browser console, be sure to toggle the viewport to iPhone 6/7/8
 
 ### Prerequisite
 
