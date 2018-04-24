@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+body, html {
+  height: 100%;
+  font-family: "Noto Sans", sans-serif;
+  color: #525252;
+  background-color: #f4f4f4; }
+
+h1 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: #525252;
+  text-align: center;
+  margin: .25em; }
+
+h2 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #ec411f; }
+
+h3 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #525252; }
+
+p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  color: #525252; }
+
+i {
+  font-size: 20px;
+  color: #525252; }
+
+ul {
+  list-style-type: none; }
+
+li {
+  font-family: "Noto Sans", sans-serif;
+  font-size: .8em;
+  padding: .5em 0.4em;
+  list-style-type: none; }
+
+#content {
+  height: 100%; }
+
+button:focus, input:focus {
+  outline: 0; }
+
+.bg {
+  background-image: url("../img/landing.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%; }
+
+#pantry {
+  font-family: 'Bell MT', sans-serif;
+  font-size: 98px;
+  font-weight: normal;
+  color: #f4f4f4;
+  margin: 15% auto 0 auto;
+  display: inline-block;
+  width: 100%; }
+
+.is-hidden {
+  display: none; }
+
+#loginIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 30% 60%; }
+
+#loginButton {
+  width: 281px;
+  height: 90px;
+  background: linear-gradient(#ec411f, #cd0f0f);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f4f4f4;
+  border: hidden;
+  border-radius: 0px;
+  padding: 0px;
+  padding-bottom: 5px; }
+
+#loginButton:active {
+  background-color: #f4f4f4;
+  border: hidden;
+  border-radius: 0px; }
+
+.tab {
+  text-align: center;
+  padding: 5px 0;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold; }
+
+.TabActive {
+  background-color: #ec411f;
+  border-bottom: 2px solid #ec411f;
+  color: #f4f4f4; }
+
+.TabInactive {
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ec411f;
+  color: #525252; }
+
+#searchDiv {
+  margin-top: 1em; }
+
+#searchInput {
+  height: 43px;
+  border: #bababa solid 2px;
+  font-family: "Noto Sans", sans-serif;
+  color: #525252; }
+
+#searchButton {
+  height: 43px;
+  border: #ec411f solid 2px;
+  color: #ec411f;
+  background-color: white;
+  margin-top: 1em !important;
+  font-weight: bold;
+  font-size: 20px;
+  transition-duration: .4s;
+  overflow: hidden; }
+
+#searchButton:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: #ec411f;
+  opacity: 0;
+  color: #f4f4f4;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%; }
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1; }
+  30% {
+    transform: scale(60, 60);
+    opacity: 0; }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60); } }
+#searchButton:active {
+  background-color: #ec411f;
+  color: #f4f4f4;
+  transition: ease-out .2s; }
+
+#logoutButton:active {
+  background-color: transparent;
+  color: #ec411f;
+  transition: ease-out .2s;
+  border: 2px solid #ec411f;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+
+#searchButton:focus:not(:active)::after {
+  animation: ripple 1.4s ease-out; }
+
+input,
+input::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 3;
+  font-family: "Noto Sans", sans-serif; }
+
+.iconDiv {
+  margin-top: 1em; }
+
+.searchIcon {
+  height: 40px;
+  width: 40px; }
+
+#bookIcon {
+  height: 70px;
+  width: 70px; }
+
+#bookIcon2 {
+  height: 50px;
+  width: 50px;
+  margin-top: 21px; }
+
+#resultsDiv {
+  height: 21.6em;
+  margin-top: 1.2em;
+  overflow: auto; }
+
+#savedDiv {
+  height: 42em;
+  margin-top: 1.2em;
+  overflow: auto; }
+
+#logoutButton {
+  height: 43px;
+  background-color: #ec411f;
+  color: #f4f4f4;
+  border: 2px solid #ec411f;
+  font-weight: bold;
+  position: fixed;
+  bottom: 20px;
+  left: 15px;
+  padding: 0; }
+
+.deleteButton {
+  height: 43px;
+  background-color: #ec411f;
+  color: #f4f4f4;
+  border: 2px solid #ec411f;
+  font-weight: bold;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  padding: 0; }
+
+.recipeDiv {
+  background-color: white;
+  padding: 15px 0;
+  margin-bottom: 1em; }
+
+.savedRecipeDiv {
+  background-color: white;
+  padding: 15px 0;
+  margin-bottom: 1em; }
+
+.recipeInfo {
+  height: 85px; }
+
+.overviewIcon {
+  height: 25px;
+  width: 25px;
+  margin-left: auto; }
+
+#cookingMinutes {
+  margin: 7px 15px 0 4px; }
+
+.recipeOverviewImage {
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.6);
+  padding: 0;
+  margin: 0 0 0 15px; }
+
+.recipeOverviewName {
+  margin: auto;
+  padding: 0;
+  color: #525252; }
+
+.fullRecipeImage {
+  height: 30vh;
+  margin-top: 1em; }
+
+.recipeName {
+  margin-top: 15px; }
+
+#savedDiv {
+  margin-top: 30px;
+  height: 64vh;
+  overflow: auto; }
+
+.infoContainer {
+  overflow: auto;
+  height: 81vh;
+  background-color: white; }
+
+.favoriteButton {
+  width: 70px;
+  position: fixed;
+  bottom: 5px;
+  right: 21px;
+  padding: 10px; }
+
+/*# sourceMappingURL=main.css.map */

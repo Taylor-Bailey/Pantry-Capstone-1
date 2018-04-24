@@ -1,10 +1,7 @@
 .DS_Store
 js/fb-key.js
 js/api-key.js
-dist/
 lib/.sass-cache
 lib/node_modules
 lib/package-lock.json
-css/main.css
-css/main.css.map
 images/
